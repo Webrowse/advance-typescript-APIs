@@ -32,11 +32,37 @@
 // user.name = 'John'; //not allowed as it is mentioned Read-only
 // user.email = 'new@email.com'; // this is allowed
 
-// =========Records =================
-type Users = Record<string, {age:number, name:string}>;
+// =========Records to generate key-value-pair=================
+// type Users = Record<string, {age:number, name:string}>;
 
-const user:Users = {
-    '1': {age: 25, name: 'John'},
-    '2': {age: 30, name: 'Jane'},
-    '3': {age: 28, name: 'Mike'},
+// const user:Users = {
+//     '1': {age: 25, name: 'John'},
+//     '2': {age: 30, name: 'Jane'},
+//     '3': {age: 28, name: 'Mike'},
+// }
+
+//========= Map to generate key-value pair===========
+type User = {
+    age: number,
+    name: string
 }
+
+type UserMap = Map<string, User>;
+// Both above and below are the same type.
+type UserMap2 = Map<string, {age:number, name:string}>;
+
+const userMap = new Map([
+    ['1', {age: 25, name: 'John'}],
+    ['2', {age: 30, name: 'Jane'}],
+    ['3', {age: 28, name: 'Mike'}],
+])
+
+//==========another way to write 
+// ======Map gives you the access to get, set and delete. 
+const userMap2 = new Map();
+userMap2.set('1', {age: 25, name: 'John'});
+
+const getValueof1 = userMap2.get('2');
+
+userMap2.delete('1');
+

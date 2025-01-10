@@ -1,11 +1,15 @@
 interface User{
+    id: string;
     name: string;
     age: number;
+    email: string;
+    password: string;
 }
 
-function sumAge(user1: User, user2: User){
-    return user1.age+user2.age;
+type UpdateProps = Pick<User, 'name' | 'age' | 'email'>
+
+function updatedUser(updatedProps: UpdateProps){
+    return {...updatedProps};
 }
 
-const sumofAge = sumAge({name: 'adarsh', age: 23},{name: 'akshay', age: 27});
-console.log(sumofAge);
+

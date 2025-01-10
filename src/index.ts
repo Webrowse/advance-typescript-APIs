@@ -6,10 +6,14 @@ interface User{
     password: string;
 }
 
+// Pick let you choose a subtype of User
 type UpdateProps = Pick<User, 'name' | 'age' | 'email'>
 
-function updatedUser(updatedProps: UpdateProps){
+
+//Partial makes each field optional
+function updatedUser(updatedProps: Partial<UpdateProps>){
     return {...updatedProps};
 }
 
-
+const result = updatedUser({name: 'John', age:12});
+console.log(result);

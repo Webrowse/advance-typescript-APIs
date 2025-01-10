@@ -41,28 +41,38 @@
 //     '3': {age: 28, name: 'Mike'},
 // }
 
-//========= Map to generate key-value pair===========
-type User = {
-    age: number,
-    name: string
-}
+// //========= Map to generate key-value pair===========
+// type User = {
+//     age: number,
+//     name: string
+// }
 
-type UserMap = Map<string, User>;
-// Both above and below are the same type.
-type UserMap2 = Map<string, {age:number, name:string}>;
+// type UserMap = Map<string, User>;
+// // Both above and below are the same type.
+// type UserMap2 = Map<string, {age:number, name:string}>;
 
-const userMap = new Map([
-    ['1', {age: 25, name: 'John'}],
-    ['2', {age: 30, name: 'Jane'}],
-    ['3', {age: 28, name: 'Mike'}],
-])
+// const userMap = new Map([
+//     ['1', {age: 25, name: 'John'}],
+//     ['2', {age: 30, name: 'Jane'}],
+//     ['3', {age: 28, name: 'Mike'}],
+// ])
 
-//==========another way to write 
-// ======Map gives you the access to get, set and delete. 
-const userMap2 = new Map();
-userMap2.set('1', {age: 25, name: 'John'});
+// //==========another way to write 
+// // ======Map gives you the access to get, set and delete. 
+// const userMap2 = new Map();
+// userMap2.set('1', {age: 25, name: 'John'});
 
-const getValueof1 = userMap2.get('2');
+// const getValueof1 = userMap2.get('2');
 
-userMap2.delete('1');
+// userMap2.delete('1');
 
+// ==========================  Exclude a bunch of literals  ================================
+
+type EventType = 'click' | 'scroll' | 'mousemove';
+type ExcludeEvent = Exclude<EventType, 'scroll'>; // 'click' | 'mousemove' 
+
+const handleEvent = (event: ExcludeEvent) => {
+    console.log(`Handling event: ${event}`);
+};
+
+handleEvent('mousemove');

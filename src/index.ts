@@ -1,3 +1,4 @@
+// ========= Pick ================
 // interface User{
 //     id: string;
 //     name: string;
@@ -10,7 +11,7 @@
 // type UpdateProps = Pick<User, 'name' | 'age' | 'email'>
 
 
-// //Partial makes each field optional
+// //===========Partial makes each field optional
 // function updatedUser(updatedProps: Partial<UpdateProps>){
 //     return {...updatedProps};
 // }
@@ -18,7 +19,7 @@
 // const result = updatedUser({name: 'John', age:12});
 // console.log(result);
 
-//Readonly properties
+//=============== Readonly properties
 // type User = {
 //     readonly name: string;
 //     email: string;
